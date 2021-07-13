@@ -1,0 +1,15 @@
+.sidebar-middle{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.sidebar-middle >.MuiSvgIcon-root{
+    color: gray;
+    
+    }
+   
+    .sidebar-middle >p{
+        margin: 6px 0 0 0;
+  }

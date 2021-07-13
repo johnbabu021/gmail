@@ -3,16 +3,16 @@
     align-items: center;
     cursor: pointer;
     font-size: 16px;
-    color: black;
-    margin-top: 0.5rem;
 }
 .sidebarOption > .MuiSvgIcon-root{
-padding: 5px;
+padding:2px 5px;
 padding-left: 30px;
+color: gray;
 }
+
 .sidebarOption >h3{
     flex:0.9; 
-    font-weight: 400;
+font-weight: 400;
     margin: 0 0 0 20px;
 }
 .sidebarOption >p{
@@ -26,8 +26,10 @@ margin: 0;
 .sidebarOption:hover,
 .sidebarOption:hover >h3,
 .sidebarOption:hover >p,
+.sidebarOption:hover >.inbox-icon,
 .sidebarOption--active,
 .sidebarOption--active >h3,
+.sidebarOption--active >.inbox-icon,
 .sidebarOption--active >p{
     background:#fcecec;
        color: #c84b37;

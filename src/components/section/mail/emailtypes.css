@@ -1,0 +1,19 @@
+.email-types{
+    display: flex;
+    align-items: center;
+    padding:  15px;
+    min-width: 200px;
+    cursor: pointer;
+    border-width: 0px !important;
+}
+.email-types:hover{
+    background-color: whitesmoke;
+border-width: 3px !important;
+}
+.email-types-selection{
+    background-color: whitesmoke;
+    border-width: 3px !important;
+}
+.email-types >h4{
+    margin: 0;
+}
