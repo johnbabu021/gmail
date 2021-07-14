@@ -3,6 +3,7 @@ import { Close } from '@material-ui/icons'
 import React from 'react'
 import './sendmail.css'
 
+
 function SendMail() {
     return (
         <div className="sendmail">
