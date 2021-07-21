@@ -17,9 +17,9 @@
 }
 
 .email-row-title{
-    flex: 0.1;
+    flex: 0.4;
 overflow: hidden;
-min-width: 100px;
+min-width: 200px;
 }
 
 .email-row-description{

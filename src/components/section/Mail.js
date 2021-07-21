@@ -2,10 +2,13 @@ import { Icon, IconButton } from '@material-ui/core'
 import { Archive, ArrowBack, ArrowBackIos, ArrowForwardIos, CheckCircle, Delete, LabelImportant, LabelImportantOutlined, Markunread, MoreVert, Print, Report } from '@material-ui/icons'
 import WatchLater from '@material-ui/icons/WatchLater'
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import { selectMail, selectOpenMail } from '../../features/mailSlice'
 import './mail.css'
 function Mail() {
     const history = useHistory()
+    const selectedMail = useSelector(selectOpenMail)
     return (
         <div className="mail">
             <div className="email-tools">
@@ -65,15 +68,14 @@ function Mail() {
             </div>
             <div className="mail-body">
                 <div className="mail-body-header">
-                    <h2>Subject</h2>
+                    <h2>{selectedMail?.subject}</h2>
                     <LabelImportant className="mail-important" />
-                    <p>title</p>
-                    <p className="mail-time">time</p>
+                    <p>{selectedMail?.title}</p>
+                    <p className="mail-time">{selectedMail?.time}</p>
 
                 </div>
                 <div className="mail-message">
-                    This is a message
-                </div>
+                    {selectedMail?.description}                </div>
 
 
             </div>

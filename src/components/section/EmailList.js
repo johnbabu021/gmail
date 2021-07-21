@@ -24,7 +24,6 @@ function EmailList() {
 
         ))
     }, [])
-    console.log(emails, "emails")
     return (
         <div className="email-list">
             <div className="email-settings">
@@ -57,7 +56,7 @@ function EmailList() {
             </div>
             <div className="email-row-itmes">
 
-                {emails.map(({ id, data: { to, subject, message, timestamp } }) => {
+                {emails.map(({ id, data: { to, subject, message, timestamp } }) => (
 
 
 
@@ -70,8 +69,7 @@ function EmailList() {
                         time={new Date(timestamp?.seconds * 1000).toUTCString()}
                     />
 
-                })}
-                <EmailRow id="1" title="hello" subject="subject" time="23-3-534" description="hello everyone" />
+                ))}
 
             </div>
 
