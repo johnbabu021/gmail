@@ -12,12 +12,16 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import VideocamIcon from '@material-ui/icons/Videocam';
 import KeyboardIcon from '@material-ui/icons/Keyboard';
 import SidebarFooter from './SidebarFooter'
+import { useDispatch } from 'react-redux'
+import { openSendMessage } from '../../features/mailSlice'
 function Sidebar() {
-    // const [menu, setMenu] = useState(true)
-    //${menu && "minimal-screen"}
+    const dispatch = useDispatch()
     return (
         <div className={`sidebar  `}>
-            <Button startIcon={<AddIcon fontSize="large" />} className="sidebar__compose">Compose</Button>
+            <Button startIcon={<AddIcon fontSize="large" />} className="sidebar__compose"
+                onClick={() => dispatch(openSendMessage())}
+
+            >Compose</Button>
 
             <SidebarOption Icon={InboxIcon} title="Inbox" number={54} selected={true} />
             <SidebarOption Icon={StarIcon} title="Starred" number={80} selected={false} />

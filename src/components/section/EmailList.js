@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./emaillist.css"
 import RefreshIcon from '@material-ui/icons/Refresh';
 import { Checkbox, IconButton } from '@material-ui/core'
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import { MoreVert } from '@material-ui/icons';
+import { ContactsOutlined, MoreVert } from '@material-ui/icons';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import InboxIcon from '@material-ui/icons/Inbox'
@@ -11,7 +11,20 @@ import EmailType from './mail/EmailTypes'
 import PeopleIcon from '@material-ui/icons/People';
 import LocalOfferIcon from '@material-ui/icons/LocalOffer'
 import EmailRow from './mailcomponent/EmailRow'
+import { db } from '../../lib/firebase';
+
 function EmailList() {
+    const [emails, setEmails] = useState([])
+    useEffect(() => {
+        db.collection('emails').orderBy('timestamp', 'desc').onSnapshot((snapshot) => setEmails(
+            snapshot.docs.map((doc) => ({
+                id: doc.id,
+                data: doc.data()
+            }))
+
+        ))
+    }, [])
+    console.log(emails, "emails")
     return (
         <div className="email-list">
             <div className="email-settings">
@@ -43,11 +56,21 @@ function EmailList() {
 
             </div>
             <div className="email-row-itmes">
-                <EmailRow id="1" title="hello" subject="subject" time="23-3-534" description="hello everyone" />
-                <EmailRow id="1" title="hello" subject="subject" time="23-3-534" description="hello everyone" />
-                <EmailRow id="1" title="hello" subject="subject" time="23-3-534" description="hello everyone and this is a pafjaskfjalksf sfsfjiassfskkfasifjakssfjisdfjalkdf dfaisfajsskfasf " />
-                <EmailRow id="1" title="hello" subject="subject" time="23-3-534" description="hello everyone" />
-                <EmailRow id="1" title="hello" subject="subject" time="23-3-534" description="hello everyone" />
+
+                {emails.map(({ id, data: { to, subject, message, timestamp } }) => {
+
+
+
+                    < EmailRow
+                        id={id}
+                        key={id}
+                        title={to}
+                        subject={subject}
+                        description={message}
+                        time={new Date(timestamp?.seconds * 1000).toUTCString()}
+                    />
+
+                })}
                 <EmailRow id="1" title="hello" subject="subject" time="23-3-534" description="hello everyone" />
 
             </div>

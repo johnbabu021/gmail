@@ -26,8 +26,10 @@
     padding-left: 15px;
     color: white;
 }
+
 .sendmail-header >.MuiSvgIcon-root{
     padding-right: 15px;
+    cursor: pointer;
     color: rgb(165, 162, 162);
 }
 .sendmail >form{
@@ -54,4 +56,9 @@ margin: 15px !important;
 }
 .email-option-message{
     flex: 1;
+    height: 100%;
+}
+.sendmail-error{
+    color: red;
+    text-align: center;
 }
