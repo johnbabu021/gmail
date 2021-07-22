@@ -1,10 +1,10 @@
-import { Icon, IconButton } from '@material-ui/core'
+import {  IconButton } from '@material-ui/core'
 import { Archive, ArrowBack, ArrowBackIos, ArrowForwardIos, CheckCircle, Delete, LabelImportant, LabelImportantOutlined, Markunread, MoreVert, Print, Report } from '@material-ui/icons'
 import WatchLater from '@material-ui/icons/WatchLater'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { selectMail, selectOpenMail } from '../../features/mailSlice'
+import {  selectOpenMail } from '../../features/mailSlice'
 import './mail.css'
 function Mail() {
     const history = useHistory()

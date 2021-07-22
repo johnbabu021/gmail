@@ -7,8 +7,15 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import AppsIcon from '@material-ui/icons/Apps';
 import SettingsIcon from '@material-ui/icons/Settings';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout, selectUser } from '../../features/userSlice';
 
 function Header() {
+    const dispatch = useDispatch()
+    const user = useSelector(selectUser)
+    const signOut = () => {
+        dispatch(logout())
+    }
     return (
         <div className="header">
             <div className="header-left">
@@ -40,7 +47,7 @@ function Header() {
                     <AppsIcon />
                 </IconButton>
                 <IconButton>
-                    <Avatar />
+                    <Avatar src={user?.photoUrl} onClick={signOut} />
                 </IconButton>
 
             </div>
